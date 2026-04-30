@@ -370,7 +370,7 @@
                     <div class="absolute top-0 left-0 w-2 h-full bg-rose-500/30 group-hover:bg-rose-500 transition-colors"></div>
                     <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
                         <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">💥</span>
-                        3.2. The Shattering of the Dream: September 22, 2006
+                        The Shattering of the Dream: September 22, 2006
                     </h3>
                     <p>This narrative of technological invulnerability was violently deconstructed on the morning of September 22, 2006. During an invitation-only test run carrying 31 passengers—primarily friends, family, local care service workers, and project employees—the Transrapid 08 departed the station. At 9:52 AM, the train accelerated out of the station. Merely 57 seconds later, traveling at 162 km/h (101 mph), it collided head-on with a stationary 60-metric-ton diesel-powered maintenance wagon that was cleaning the track. </p>
                     <p>The impact was catastrophic. The lightweight, aerodynamic front of the maglev train burrowed beneath the heavy maintenance vehicle, violently peeling back the roof of the passenger cabin and compressing the interior. The crash claimed 23 lives and left 10 others severely injured, marking the first fatal accident in the history of maglev technology. As rescuers rushed to the scene, their efforts were severely hampered by the fact that the track was suspended on concrete stilts five meters above the ground, highlighting a critical flaw in the system's emergency evacuation protocols. </p>
@@ -382,7 +382,7 @@
                     <div class="absolute top-0 left-0 w-2 h-full bg-rose-500/30 group-hover:bg-rose-500 transition-colors"></div>
                     <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
                         <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">⚖️</span>
-                        3.3. Media Discourse and the Precautionary Turn
+                        Media Discourse and the Precautionary Turn
                     </h3>
                     <p>The German media discourse immediately shifted from technological triumphantism to a narrative of systemic hubris and preventable tragedy. While the technology itself had not technically failed to levitate, the accident proved that the infallible, frictionless future was highly vulnerable to mundane human error and operator boredom. The rhetoric of the train being "impossible to derail" was mocked as the wreckage was broadcast globally, strewn across 300 meters of the elevated guideway. </p>
                     <p>The legal fallout was protracted and tragic. Two track managers, Guenter Steinmetz and Joerg Metzner, were convicted of 23 counts of manslaughter and fined €24,000 and €20,000, respectively, for failing to adhere to safety guidelines. A third defendant, traffic superintendent Guenther Mueller, who gave the final clearance, was placed in protective custody and deemed unable to face trial due to severe suicide risks. </p>
@@ -699,29 +699,18 @@
     <script>
         const reportData = {
             china: {
-                subtitle: "State-Led Integration",
-                title: "Shanghai Maglev",
-                desc: "The Shanghai Maglev represents China's state-led integration and utilization of cutting-edge infrastructure as a symbol of national mastery.",
-                context: "Commercial launch in 2004 established it as a global icon of high-speed modernity.",
                 polarData: [90, 85, 15, 10]
             },
             japan: {
-                subtitle: "High-Tech Positioning",
-                title: "Chuo Shinkansen",
-                desc: "Japan positions the Chuo Shinkansen strictly within a high-tech framing, marketed as the ultimate sensory upgrade.",
-                context: "Ongoing development focuses on pushing physical limits while marketing comfort.",
                 polarData: [85, 95, 20, 15]
             },
             germany: {
-                subtitle: "Pioneer to Skeptic",
-                title: "The Transrapid Legacy",
-                desc: "Once a maglev pioneer, Germany became deeply skeptical following regulatory and safety concerns.",
-                context: "The 2006 Transrapid accident served as the catalyst for shifting public sentiment.",
                 polarData: [30, 15, 90, 85]
             }
         };
 
-        let currentCountry = 'china';
+        // Initialize with Germany to match the document's numbering order (3, 4, 5)
+        let currentCountry = 'germany';
         let polarChartInstance = null;
         const colors = {
             modernity: 'rgba(13, 148, 136, 0.7)',
@@ -755,23 +744,32 @@
 
         window.setCountry = function(countryKey) {
             currentCountry = countryKey;
+            
+            // Toggle active styling on buttons
             document.querySelectorAll('.country-tab').forEach(btn => {
-                btn.classList.remove('active', 'bg-slate-900', 'text-white');
-                btn.classList.add('text-slate-600', 'hover:bg-slate-200');
+                btn.classList.remove('active', 'bg-slate-900', 'text-white', 'shadow-md');
+                btn.classList.add('text-slate-600', 'bg-slate-100', 'hover:bg-slate-200');
             });
             const activeBtn = document.getElementById(`btn-${countryKey}`);
-            activeBtn.classList.add('active');
+            activeBtn.classList.add('active', 'bg-slate-900', 'text-white', 'shadow-md');
+            activeBtn.classList.remove('text-slate-600', 'bg-slate-100', 'hover:bg-slate-200');
 
-            const contentDiv = document.getElementById('country-content');
-            contentDiv.style.opacity = '0';
+            // Hide all panels
+            document.querySelectorAll('.country-panel').forEach(panel => {
+                panel.classList.add('hidden');
+                panel.classList.remove('block');
+                panel.style.opacity = '0';
+            });
+            
+            // Show the active panel with a subtle fade
+            const activePanel = document.getElementById(`panel-${countryKey}`);
+            activePanel.classList.remove('hidden');
+            activePanel.classList.add('block');
             setTimeout(() => {
-                document.getElementById('display-subtitle').innerText = reportData[countryKey].subtitle;
-                document.getElementById('display-title').innerText = reportData[countryKey].title;
-                document.getElementById('display-desc').innerText = reportData[countryKey].desc;
-                document.getElementById('display-context').innerText = reportData[countryKey].context;
-                contentDiv.style.opacity = '1';
-            }, 200);
+                activePanel.style.opacity = '1';
+            }, 50);
 
+            // Update the Polar Chart
             if(polarChartInstance) {
                 polarChartInstance.data.datasets[0].data = reportData[countryKey].polarData;
                 polarChartInstance.update();
@@ -802,6 +800,24 @@
             });
         }
 
+        // Logic for Interactive Table Column Highlighting
+        window.highlightCol = function(colIndex) {
+            document.querySelectorAll('.interactive-table tbody tr').forEach(row => {
+                row.querySelectorAll('td').forEach((cell, index) => {
+                    if (index === colIndex) {
+                        cell.classList.add('bg-teal-50/50');
+                    }
+                });
+            });
+        };
+
+        window.resetCol = function() {
+            document.querySelectorAll('.interactive-table tbody tr td').forEach(cell => {
+                cell.classList.remove('bg-teal-50/50');
+            });
+        };
+
+        // Navigation scrollspy logic
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
         window.addEventListener("scroll", () => {
@@ -821,5 +837,6 @@
             initDivergingChart();
         };
     </script>
+     
 </body>
 </html>
