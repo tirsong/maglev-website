@@ -857,6 +857,104 @@
             </div>
         </section>
 
+        <section id="comparative" class="scroll-mt-12 pb-12">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Divergent Trajectories of the Frictionless Future</h2>
+                <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+                    The sociotechnical imaginaries of magnetic levitation reveal how identical physical principles are mapped onto vastly different cultural and political landscapes. The elimination of friction between train and track does not eliminate friction in society; rather, it displaces it into the realms of economics, ecology, and regulatory philosophy.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mb-12">
+                <div class="p-6 md:p-8 border-b border-slate-100 bg-slate-50/50">
+                    <h3 class="text-xl font-bold text-slate-900">Comparative Sociotechnical Imaginaries</h3>
+                    <p class="text-sm text-slate-500 mt-1">Mapping maglev integration across three distinct national paradigms.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left min-w-[800px]">
+                        <thead class="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
+                            <tr>
+                                <th class="w-1/4 px-6 py-5 font-bold text-slate-800">Feature</th>
+                                <th class="w-1/4 px-6 py-5 font-bold text-slate-800">🇩🇪 Germany (Transrapid)</th>
+                                <th class="w-1/4 px-6 py-5 font-bold text-slate-800">🇨🇳 China (Shanghai/CRRC)</th>
+                                <th class="w-1/4 px-6 py-5 font-bold text-slate-800">🇯🇵 Japan (Chuo Shinkansen)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr class="hover:bg-slate-50/50 transition-colors align-top">
+                                <td class="px-6 py-5 font-medium text-slate-900">Operational Philosophy</td>
+                                <td class="px-6 py-5">Precautionary retreat following systemic failure.</td>
+                                <td class="px-6 py-5">Aggressive acceleration and sovereign iteration.</td>
+                                <td class="px-6 py-5">Long-term perfection and seismic redundancy.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors align-top">
+                                <td class="px-6 py-5 font-medium text-slate-900">Primary Narrative</td>
+                                <td class="px-6 py-5">Hubris, preventable tragedy, and unacceptable risk.</td>
+                                <td class="px-6 py-5">"Chinese Speed," state capacity, techno-economic lifecycle.</td>
+                                <td class="px-6 py-5">Industrial heritage, sensory upgrade, national survival.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors align-top">
+                                <td class="px-6 py-5 font-medium text-slate-900">The 'Levitating Body'</td>
+                                <td class="px-6 py-5">A vulnerable subject exposed to unnecessary technological danger.</td>
+                                <td class="px-6 py-5">A political subject participating in national modernization.</td>
+                                <td class="px-6 py-5">A premium consumer experiencing the pinnacle of Japanese artisanship.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors align-top">
+                                <td class="px-6 py-5 font-medium text-slate-900">Societal Friction Tolerance</td>
+                                <td class="px-6 py-5"><span class="inline-block px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-bold mb-2">Very Low</span><br>Public skepticism and safety fears halted all projects.</td>
+                                <td class="px-6 py-5"><span class="inline-block px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-bold mb-2">High</span><br>Economic/safety critiques are absorbed and reframed by technocrats.</td>
+                                <td class="px-6 py-5"><span class="inline-block px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-bold mb-2">Moderate</span><br>Technical risks managed, but ecological protests cause massive delays.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 mb-12">
+                <div class="chart-container" style="max-width: 1000px; height: 400px;">
+                    <canvas id="divergingBarChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 pt-8 border-t border-slate-100">
+                    <div>
+                        <h5 class="font-bold text-slate-900 text-lg mb-2">The European Precaution</h5>
+                        <p class="text-sm text-slate-600 leading-relaxed">In Europe, the 2006 Lathen crash proved that high-speed novelty introduces unpredictable, tightly coupled risks. The marginal benefits of frictionless travel simply could not justify abandoning the highly compatible wheel-on-rail network.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-slate-900 text-lg mb-2">The East Asian Acceleration</h5>
+                        <p class="text-sm text-slate-600 leading-relaxed">For China, risk is subordinated to nation-building. Maglev is a performance of state power; the friction of accidents is viewed through a technocratic lens as a tragic but temporary hurdle on the inevitable path to ultimate modernization.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-slate-900 text-lg mb-2">The Japanese Middle Ground</h5>
+                        <p class="text-sm text-slate-600 leading-relaxed">Japan physically engineered out risk (using EDS over EMS), but faces intense democratic and ecological friction. The desire for frictionless disaster resilience must constantly negotiate with highly empowered local civic actors over issues like water rights.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center gap-8 border border-slate-800 relative overflow-hidden group">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-teal-500/20 blur-3xl rounded-full group-hover:bg-teal-500/30 transition-all duration-700"></div>
+                
+                <div class="md:w-1/3 flex justify-center md:justify-start">
+                    <div class="text-6xl bg-slate-800 w-24 h-24 rounded-full flex items-center justify-center border border-slate-700/50 shadow-inner">
+                        🚅
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 relative z-10">
+                    <h4 class="text-teal-400 font-bold uppercase tracking-widest text-xs mb-3">Societal Implications</h4>
+                    <h3 class="text-2xl font-bold text-white mb-4">The Illusion of Frictionless Mobility</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        The drive for frictionless travel—whether automated transit or vacuum-tube Hyperloops—is often criticized for obscuring deeper inequalities. It seeks to bypass the complex, "messy" realities of urban settlements to cater exclusively to a privileged class of travelers.
+                    </p>
+                    <blockquote class="border-l-2 border-teal-500 pl-4 py-1">
+                        <p class="text-slate-200 font-medium italic">
+                            "The physical elevation of the maglev train mirrors the social elevation of its passengers—literally and figuratively rising above the friction of the terrestrial world, while ignoring the environmental costs imposed on marginalized communities."
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
         <!-- NEW Section 5: Multimedia Library -->
         <section id="multimedia" class="scroll-mt-12">
             <div class="mb-10">
@@ -892,37 +990,6 @@
                     </div>
                     <h4 class="font-bold text-slate-900">Transrapid Promotional Film</h4>
                     <p class="text-sm text-slate-500 mt-1">Archival footage of the German Transrapid system at Emsland.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Comparative Analysis -->
-        <section id="comparative" class="scroll-mt-12 pb-12">
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Sensory Upgrade vs. Hubris</h2>
-                <p class="text-lg text-slate-600 max-w-3xl">
-                    By quantifying qualitative sentiment analysis, we map how the physical experience of the "levitating body" is marketed versus how it is scrutinized.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                <div class="chart-container" style="max-width: 1000px; height: 400px;">
-                    <canvas id="divergingBarChart"></canvas>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100">
-                    <div>
-                        <h5 class="font-bold text-slate-900 mb-2">East Asian Consensus</h5>
-                        <p class="text-sm text-slate-600">China and Japan focus media attention on speed, frictionless comfort, and technological triumph.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-slate-900 mb-2">German Divergence</h5>
-                        <p class="text-sm text-slate-600">The lack of friction is culturally translated into a narrative of lost physical control and regulatory vulnerability.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-slate-900 mb-2">Conclusion</h5>
-                        <p class="text-sm text-slate-600">Maglev speed is a curated socio-technical imaginary determined by the political landscape.</p>
-                    </div>
                 </div>
             </div>
         </section>
