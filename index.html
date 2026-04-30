@@ -7,7 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <style>
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    
+    
+    <style type="text/tailwindcss">
         body {
             font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
@@ -64,6 +76,43 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Formatting for the technical report section */
+        .tech-article h2 {
+            @apply text-3xl font-bold text-slate-900 mt-12 mb-6 border-b border-slate-200 pb-2;
+        }
+        .tech-article h3 {
+            @apply text-xl font-bold text-slate-800 mt-8 mb-4;
+        }
+        .tech-article h4 {
+            @apply text-lg font-bold text-slate-800 mt-8 mb-4;
+        }
+        .tech-article p {
+            @apply text-slate-800 text-lg leading-loose mb-10;
+        }
+        .tech-article ul {
+            @apply list-disc pl-6 mb-10 space-y-3 text-slate-800 text-lg;
+        }
+        
+        /* Upgraded Global Table Styles */
+        .tech-article table:not(.interactive-table) {
+            @apply w-full text-left border-collapse mb-10 text-sm md:text-base rounded-xl overflow-hidden shadow-md;
+        }
+        .tech-article table:not(.interactive-table) th {
+            @apply bg-slate-800 text-white font-bold border-b-2 border-teal-500 px-5 py-4;
+        }
+        .tech-article table:not(.interactive-table) td {
+            @apply border-b border-slate-200 px-5 py-4 text-slate-700;
+        }
+        .tech-article table:not(.interactive-table) tr:nth-child(even) {
+            @apply bg-slate-50;
+        }
+        .tech-article table:not(.interactive-table) tr:hover td {
+            @apply bg-teal-50/50 transition-colors duration-200;
+        }
+        .tech-article table:not(.interactive-table) tr:last-child td {
+            @apply border-b-0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col md:flex-row min-h-screen">
@@ -76,6 +125,8 @@
         </div>
         <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible pb-4 md:px-0 gap-2 md:gap-0">
             <a href="#summary" class="nav-link active flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Executive Summary</a>
+            <a href="#introduction" class="nav-link active flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Introduction</a>
+            <a href="#theoretical" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Theoretical Framework</a>
             <a href="#trajectories" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">National Trajectories</a>
             <a href="#innovation" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Innovation Spotlight</a>
             <a href="#timelines" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Global Timelines</a>
@@ -86,6 +137,7 @@
 
     <!-- Main Content Area -->
     <main class="flex-1 w-full max-w-6xl mx-auto p-6 md:p-12 space-y-24">
+
 
         <!-- Section 1: Executive Summary -->
         <section id="summary" class="scroll-mt-12">
@@ -115,7 +167,154 @@
             </div>
         </section>
 
-        <!-- Section 2: National Trajectories -->
+        <!-- Section 1.5: Introduction -->
+         
+        <section id="introduction" class="scroll-mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 tech-article">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Introduction: The Politics of Eradicating Friction</h2>
+      
+            <p>The quest to conquer distance through the absolute minimization of mechanical resistance represents one of the most enduring ambitions of modern technoscience. At the vanguard of this pursuit is magnetic levitation (maglev) technology, a paradigm-shifting mode of transit that discards the foundational mechanism of terrestrial transportation: the wheel. By utilizing powerful electromagnetic forces to lift, guide, and propel rolling stock above a specialized guideway, maglev effectively eradicates rolling friction, enabling ground-based travel at velocities previously reserved for aviation. However, the transition from wheel-on-rail dynamics to frictionless hovering is not merely a triumph of physics and engineering. It represents a profound sociological, cultural, and political transformation in how human mobility is experienced, regulated, and mobilized as an instrument of state power.</p>
+            
+            <p>This research report provides an exhaustive, comparative analysis of the sociotechnical imaginaries surrounding maglev technology in three distinct national contexts: the People's Republic of China, Japan, and the Federal Republic of Germany. Through the analytical lens of Science and Technology Studies (STS), this study investigates how the "levitating body"—the human subject suspended and propelled at extreme speeds—is constructed within national media and public sentiment as a site of either supreme technological modernity or catastrophic systemic risk.</p>
+
+            <figure class="my-10">
+                <img src="https://media.cnn.com/api/v1/images/stellar/prod/190524114334-3-maglev-china-prototype.jpg?q=w_1606,h_900,x_0,y_0,c_fill" alt="Shanghai Maglev Train" class="w-full rounded-2xl shadow-md border border-slate-200" onerror="this.src='https://placehold.co/1024x500/0f172a/ffffff?text=Shanghai+Maglev+Technology'">
+                <figcaption class="text-sm text-slate-500 mt-3 text-center italic">The Shanghai Maglev in operation, symbolizing East Asian integration of high-speed modernity.</figcaption>
+            </figure>
+            
+            <p>In East Asia, the physical experience of levitation has been aggressively marketed and culturally translated into a narrative of national mastery and sensory enhancement. China has utilized maglev to project sovereign capability, rapidly integrating the technology to define a new era of "Chinese Speed" that underscores the efficacy of its state-led developmental model. Japan, conversely, frames its domestically developed superconducting maglev (SCMaglev) as an organic, high-tech evolution of its post-war industrial heritage, presenting frictionless travel as the ultimate sensory upgrade to the human transit experience, even as it navigates fierce domestic ecological opposition.</p>
+            
+            <p>In stark contrast stands Europe, epitomized by Germany. Once the global pioneer of magnetic levitation through the Transrapid program, Germany's sociotechnical imaginary underwent a violent paradigm shift following the 2006 Lathen test track disaster. The collision, which resulted in 23 fatalities, shattered the myth of technological invulnerability and ushered in an era of intense regulatory caution and public skepticism. Consequently, the European approach to ultra-high-speed transit has largely retreated from the frictionless dream, defaulting to the proven safety and network compatibility of conventional wheel-on-rail high-speed rail (HSR).</p>
+
+            <figure class="my-10">
+                <img src="https://img.atlasobscura.com/ynTYO_Mn4i8ciuGpMxAOISRNkSotlvQGeO_r1SsJMqA/rt:fit/w:1200/q:80/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy8zMmUz/Y2EyMi0wMTQ4LTRk/NzMtYTM4Ny0yNGZk/Y2I4YzY5OTJlZDIz/YjVmNGM1NDM3NjEz/ZTdfMTI4MHB4LUts/dXNlXy1fVHJhbnNy/YXBpZF9XZXJrc3Rh/dHR3YWdlbl8wOF9p/ZXMuanBlZw.jpg" alt="Transrapid Emsland" class="w-full rounded-2xl shadow-md border border-slate-200" onerror="this.src='https://placehold.co/1024x500/0f172a/ffffff?text=Transrapid+Emsland'">
+                <figcaption class="text-sm text-slate-500 mt-3 text-center italic">The Transrapid test facility in Emsland, Germany, representing the European shift towards regulatory caution and skepticism.</figcaption>
+            </figure>
+            
+            <p>By charting the divergent trajectories of China, Japan, and Germany, this analysis explores how the physics of levitation is deeply entangled with the sociology of risk, the politics of infrastructure, and the phenomenological experience of speed. Ultimately, it questions how the elimination of physical friction often generates profound social, economic, and ecological friction within the nation-states that dare to pursue it.</p>
+        </section>
+
+        <!-- Section 1.75: Theoretical Framework -->
+        <section id="theoretical" class="scroll-mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 tech-article">            
+            <h2 class="text-3xl font-extrabold text-slate-900 !mt-0 !border-0 mb-8">Theoretical Framework: Sociotechnical Imaginaries and the Levitating Body</h2>
+            
+            <p>To comprehend the divergent national responses to maglev technology, it is necessary to establish a robust theoretical framework that links the material realities of infrastructure to the psychological and political realities of the populations they serve.</p>
+
+            <!-- Card 2.1 -->
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                    <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🧠</span>
+                    2.1. Sheila Jasanoff and the Sociotechnical Imaginary
+                </h3>
+                <p>The primary analytical apparatus for this report is the concept of "sociotechnical imaginaries," pioneered by scholars Sheila Jasanoff and Sang-Hyun Kim. Sociotechnical imaginaries are defined as collectively held, institutionally stabilized, and publicly performed visions of desirable futures, animated by shared understandings of forms of social life and social order attainable through, and supportive of, advances in science and technology.</p>
+                
+                <p>Within this framework, large-scale infrastructure projects like maglev networks do not simply solve logistical problems; they serve as monumental canvases upon which nations project their geopolitical ambitions, cultural identities, and tolerances for risk. The imagination, viewed as an organized field of social practices, serves as a key ingredient in making social order. Sociotechnical imaginaries allow researchers to analyze the complex interplay of scientific developments with other dimensions of social life, revealing why different moral valences attach to new technological inventions throughout the world.</p>
+                
+                <p class="!mb-0">When applied to high-speed transportation, these imaginaries dictate the "constitutional position" of science and technology within the political order. They define whether a society views the pursuit of extreme velocity as a national imperative that justifies massive capital expenditure and ecological disruption, or as an unnecessary risk that threatens the established social contract. The ways in which states manage dissent, engage publics, and define policy in imagined opposition to other nations (e.g., Japan's fear of Chinese technological dominance, or China's desire to leapfrog Western paradigms) are all critical components of their respective sociotechnical imaginaries.</p>
+            </div>
+
+            <!-- Card 2.2 -->
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                    <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🕊️</span>
+                    2.2. The Historical and Cultural Sociology of Levitation
+                </h3>
+                <p>The concept of the "levitating body" carries profound historical and cultural weight that precedes modern engineering. In religious and mystical traditions, human levitation signified an exaltation of the spirit, a miraculous detachment from earthly constraints and mortal limitations. From the ecstatic levitations of Saint Teresa of Avila and Saint Joseph of Cupertino in the Christian tradition to the Buddhist accounts of the mango tree miracles where fire and water gushed from a levitating Buddha, the act of floating above the earth has always been codified as a manifestation of supreme power and divine exceptionalism.</p>
+                
+                <p class="!mb-0">Modern maglev technology effectively secularizes and commodifies this miracle, translating the mystical ascent into a technoscientific triumph.The ability to suspend a multi-ton vehicle and its occupants in mid-air using invisible electromagnetic fields acts as a potent symbol of mankind's ultimate mastery over the fundamental forces of nature. The state, by providing this experience to the public, assumes the role of the miracle-worker, utilizing the awe-inspiring physics of magnetic levitation to bolster its own legitimacy and project an aura of unassailable modernity.</p>
+            </div>
+
+            <!-- Card 2.3 -->
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                    <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">💨</span>
+                    2.3. The Phenomenology of Frictionless Speed
+                </h3>
+                <p>However, the physical reality of the levitating body in transit is highly complex and occasionally contradictory. The eradication of mechanical friction fundamentally alters the phenomenology of travel. While traditional wheel-to-rail noise and mechanical vibration are eliminated, the human body is subjected to new phenomenological inputs that challenge the utopian narrative of a perfectly "smooth" ride.</p>
+                
+                <p>At speeds exceeding 400 km/h (250 mph), aerodynamic drag becomes the dominant physical force, generating intense acoustic profiles that differ significantly from conventional rail.Psychoacoustic studies, such as those conducted by Joos Vos of the Dutch research institute TNO Human Factors, have indicated that the noise generated by high-speed maglev pass-bys resembles that of low-flying aircraft.When subjected to these sounds, volunteers rated maglev noise as more disturbing and annoying than standard intercity trains, noting that the occasional shrill aerodynamic sounds made them feel "insecure" and "startled".</p>
+                
+                <p>Furthermore, the lack of physical grounding introduces unique vibratory challenges. In Electromagnetic Suspension (EMS) systems, the active control mechanisms constantly adjusting the levitation gap can themselves become sources of excitation. If the control algorithms are not perfectly tuned to the flexibility of the guideway—especially when traversing elevated suspension bridges or curved tracks—coupled vibrations can occur, transmitting subtle, high-frequency oscillations and lateral accelerations into the passenger cabin.Consequently, the sociotechnical promise of a perfectly frictionless ride is often compromised by the realities of aerodynamic buffeting and active magnetic compensation. Early riders of the Shanghai Maglev, for instance, noted that while the acceleration was impressive, the overall sensation was "choppy" and involved "buffeting back and forth from side to side".</p>
+                
+                <p class="!mb-0">Sociologically, the levitating body is fundamentally a vulnerable body. The suspension of the passenger relies entirely on the continuous, flawless execution of complex algorithms and extreme physical systems. This total reliance on invisible, automated, and highly abstract technological infrastructure demands a profound level of institutional trust from the public. How states cultivate, manage, or betray this trust forms the core of their respective maglev imaginaries.</p>
+            </div>
+
+            <!-- INTERACTIVE TABLE IMPLEMENTATION -->
+            <div class="mt-16 mb-12">
+                <h4 class="text-center text-xl font-bold text-slate-900 mb-6">Table 1: Technical and Phenomenological Paradigms of Global Maglev Systems</h4>
+                
+                <div class="overflow-x-auto rounded-2xl shadow-xl border border-slate-200 bg-white">
+                    <table class="w-full text-left border-collapse interactive-table">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-sm uppercase tracking-wider">
+                                <th class="p-5 font-bold border-r border-slate-700 w-1/4">Parameter</th>
+                                <th class="p-5 font-bold border-r border-slate-700 w-1/4 transition-colors cursor-pointer hover:bg-teal-600" onmouseover="window.highlightCol(1)" onmouseout="window.resetCol()">
+                                    Electromagnetic Suspension (EMS)
+                                </th>
+                                <th class="p-5 font-bold border-r border-slate-700 w-1/4 transition-colors cursor-pointer hover:bg-teal-600" onmouseover="window.highlightCol(2)" onmouseout="window.resetCol()">
+                                    Electrodynamic Suspension (EDS)
+                                </th>
+                                <th class="p-5 font-bold w-1/4 transition-colors cursor-pointer hover:bg-teal-600" onmouseover="window.highlightCol(3)" onmouseout="window.resetCol()">
+                                    Conventional High-Speed Rail (HSR)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700">
+                            <!-- Row 1 -->
+                            <tr class="border-b border-slate-100 hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Primary Proponents</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Germany (Transrapid), China</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Japan (SCMaglev)</td>
+                                <td class="p-5 transition-colors">Europe, China, Japan</td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="border-b border-slate-100 hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Levitation Mechanism</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Attractive force (Electromagnets)</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Repulsive force (Superconducting)</td>
+                                <td class="p-5 transition-colors">Physical wheel-on-rail contact</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="border-b border-slate-100 hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Levitation Gap</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">10–15 mm (0.4 to 0.6 inches)</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">100 mm (approx. 4 inches)</td>
+                                <td class="p-5 transition-colors">N/A (Direct contact)</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="border-b border-slate-100 hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Stability Profile</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Inherently unstable; requires active computer control.</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Dynamically stable at high speeds.</td>
+                                <td class="p-5 transition-colors">Inherently stable track guidance.</td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr class="border-b border-slate-100 hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Phenomenological Issues</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">High-frequency control vibrations, aerodynamic buffeting.</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">Requires rubber tires for liftoff/landing below 150 km/h.</td>
+                                <td class="p-5 transition-colors">Mechanical friction noise, physical track degradation.</td>
+                            </tr>
+                            <!-- Row 6 -->
+                            <tr class="hover:shadow-md relative z-0 hover:z-10 transition-all duration-300 group bg-white rounded-b-2xl">
+                                <td class="p-5 font-bold bg-slate-50 group-hover:bg-teal-50/50 group-hover:text-teal-800 transition-colors border-r border-slate-100">Maximum Operational Speed</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">431 km/h (Shanghai), 600+ km/h (Prototypes)</td>
+                                <td class="p-5 transition-colors border-r border-slate-100">505 km/h (Planned), 603 km/h (Record)</td>
+                                <td class="p-5 transition-colors">~320-350 km/h (Limits due to friction)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-center text-slate-500 mt-4 italic flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                    Interactive: Hover over the column headers or individual rows to cross-reference specifications.
+                </p>
+            </div>
+        </section>
+
+        <!-- NEW Section 3, 4, 5: National Trajectories -->
         <section id="trajectories" class="scroll-mt-12">
             <div class="mb-10">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">National Trajectories</h2>
@@ -124,34 +323,175 @@
                 </p>
             </div>
 
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col xl:flex-row">
-                <div class="w-full xl:w-1/2 p-8 border-b xl:border-b-0 xl:border-r border-slate-200 flex flex-col">
-                    <div class="flex space-x-2 bg-slate-100 p-2 rounded-xl mb-8">
-                        <button onclick="setCountry('china')" id="btn-china" class="country-tab active flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">China</button>
-                        <button onclick="setCountry('japan')" id="btn-japan" class="country-tab text-slate-600 hover:bg-slate-200 flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">Japan</button>
-                        <button onclick="setCountry('germany')" id="btn-germany" class="country-tab text-slate-600 hover:bg-slate-200 flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">Germany</button>
-                    </div>
-
-                    <div id="country-content" class="flex-1 flex flex-col justify-center transition-opacity duration-300">
-                        <h4 id="display-subtitle" class="text-teal-600 font-bold uppercase tracking-wider text-sm mb-2">State-Led Integration</h4>
-                        <h3 id="display-title" class="text-3xl font-extrabold text-slate-900 mb-4">Shanghai Maglev</h3>
-                        <p id="display-desc" class="text-slate-600 leading-relaxed mb-6">
-                            The Shanghai Maglev represents China's state-led integration and utilization of cutting-edge infrastructure as a symbol of national mastery.
-                        </p>
-                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mt-auto">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Key Context</span>
-                            <p id="display-context" class="text-slate-800 text-sm font-medium">Commercial launch in 2004 established it as a global icon of high-speed modernity.</p>
-                        </div>
+            <!-- Controls & Chart -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8 flex flex-col lg:flex-row gap-8 items-center">
+                <div class="w-full lg:w-1/3">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">Select a Context:</h3>
+                    <div class="flex flex-col space-y-3">
+                        <button onclick="setCountry('germany')" id="btn-germany" class="country-tab active bg-slate-900 text-white shadow-md text-left px-5 py-4 rounded-xl font-bold text-md border border-transparent">
+                            🇩🇪 Germany
+                        </button>
+                        <button onclick="setCountry('china')" id="btn-china" class="country-tab text-slate-600 bg-slate-100 hover:bg-slate-200 text-left px-5 py-4 rounded-xl font-bold text-md border border-slate-200">
+                            🇨🇳 China
+                        </button>
+                        <button onclick="setCountry('japan')" id="btn-japan" class="country-tab text-slate-600 bg-slate-100 hover:bg-slate-200 text-left px-5 py-4 rounded-xl font-bold text-md border border-slate-200">
+                            🇯🇵 Japan
+                        </button>
                     </div>
                 </div>
-
-                <div class="w-full xl:w-1/2 p-8 flex flex-col items-center justify-center bg-slate-50">
-                    <div class="chart-container">
+                <div class="w-full lg:w-2/3 flex flex-col items-center border-t lg:border-t-0 lg:border-l border-slate-200 pt-8 lg:pt-0 lg:pl-8">
+                    <div class="chart-container" style="height: 280px;">
                         <canvas id="polarChart"></canvas>
                     </div>
                 </div>
             </div>
+
+            <!-- Detailed Content Panels -->
+            
+            <!-- GERMANY PANEL -->
+            <div id="panel-germany" class="country-panel block tech-article">
+                <h2 class="text-4xl font-extrabold text-slate-900 !mt-0 !border-0 mb-8"> Germany: The Lathen Tragedy and the Institutionalization of Skepticism</h2>
+                <p>The sociotechnical imaginary of magnetic levitation originated in Germany, driven by a post-war ambition to reclaim global leadership in advanced industrial engineering. The Transrapid project, a joint venture between industrial titans Siemens and ThyssenKrupp, was conceived not merely as a transit solution, but as a monument to German precision, safety, and technological supremacy.</p>
+
+                <!-- Subcard 3.1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-rose-500/30 group-hover:bg-rose-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">📈</span>
+                        The Genesis and Zenith of the Transrapid Imaginary
+                    </h3>
+                    <p>The German pursuit of maglev began in earnest in 1970 with the debut of the "Transrapid 01," a short, boxy prototype that never left the indoor workshop.Throughout the subsequent decades, the technology matured rapidly. By 1974, Krauss-Maffei sold the TR04 model to Japan Airlines (JAL), sparking Japan's early interest in the field. In 1988, the Transrapid 07 reached 450 km/h, cementing the technology as a viable candidate for a public maglev network in Germany.</p>
+                    <p>The physical epicenter of this imaginary was the Transrapid Versuchsanlage Emsland (TVE) testing facility in Lathen, Lower Saxony, constructed between 1980 and 1987.The 31.8-kilometer elevated test track, banked at 12 degrees at its northern turnaround, became a site of intense national pride and public spectacle. Prior to 2006, the facility drew up to 1,000 tourists a day to experience the future of travel aboard the Transrapid 08, a sleek, autonomous, three-part train capable of carrying 311 passengers.</p>
+                    <p class="!mb-0">The marketing narrative surrounding the Transrapid heavily emphasized the system's inherent, almost infallible safety. The wraparound design of the EMS undercarriage was touted as making derailment physically impossible. Furthermore, the developers claimed that the synchronous linear motor technology prevented collisions by ensuring that trains occupying the same power section could only move in the same direction and at the same speed. This rhetoric cultivated a sociotechnical imaginary of absolute control, where the risks inherent in extreme velocity were entirely mitigated by infallible German engineering.</p>
+                </div>
+
+                <!-- Subcard 3.2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-rose-500/30 group-hover:bg-rose-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">💥</span>
+                        3.2. The Shattering of the Dream: September 22, 2006
+                    </h3>
+                    <p>This narrative of technological invulnerability was violently deconstructed on the morning of September 22, 2006. During an invitation-only test run carrying 31 passengers—primarily friends, family, local care service workers, and project employees—the Transrapid 08 departed the station. At 9:52 AM, the train accelerated out of the station. Merely 57 seconds later, traveling at 162 km/h (101 mph), it collided head-on with a stationary 60-metric-ton diesel-powered maintenance wagon that was cleaning the track. </p>
+                    <p>The impact was catastrophic. The lightweight, aerodynamic front of the maglev train burrowed beneath the heavy maintenance vehicle, violently peeling back the roof of the passenger cabin and compressing the interior. The crash claimed 23 lives and left 10 others severely injured, marking the first fatal accident in the history of maglev technology. As rescuers rushed to the scene, their efforts were severely hampered by the fact that the track was suspended on concrete stilts five meters above the ground, highlighting a critical flaw in the system's emergency evacuation protocols. </p>
+                    <p class="!mb-0">The subsequent investigation revealed that the disaster was not a failure of the magnetic levitation physics, but a profound failure of the surrounding human and sociotechnical systems. The collision was the result of a catastrophic breakdown in communication and risk management. Dispatchers had forgotten the maintenance vehicle was on the line and cleared the maglev for departure. More damningly, an electronic safety mechanism designed to automatically cut power to occupied sections of the track had been routinely bypassed, a practice allegedly discouraged by supervisors to save time. Furthermore, the train and the maintenance wagon operated on disparate radio frequencies, rendering direct communication between the vehicles impossible. </p>
+                </div>
+
+                <!-- Subcard 3.3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-rose-500/30 group-hover:bg-rose-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">⚖️</span>
+                        3.3. Media Discourse and the Precautionary Turn
+                    </h3>
+                    <p>The German media discourse immediately shifted from technological triumphantism to a narrative of systemic hubris and preventable tragedy. While the technology itself had not technically failed to levitate, the accident proved that the infallible, frictionless future was highly vulnerable to mundane human error and operator boredom. The rhetoric of the train being "impossible to derail" was mocked as the wreckage was broadcast globally, strewn across 300 meters of the elevated guideway. </p>
+                    <p>The legal fallout was protracted and tragic. Two track managers, Guenter Steinmetz and Joerg Metzner, were convicted of 23 counts of manslaughter and fined €24,000 and €20,000, respectively, for failing to adhere to safety guidelines. A third defendant, traffic superintendent Guenther Mueller, who gave the final clearance, was placed in protective custody and deemed unable to face trial due to severe suicide risks. </p>
+                    <p>The Lathen disaster served as a catalyst for a deep-seated cultural shift in Europe regarding ultra-high-speed transport. The public perception of the "levitating body" transitioned from an exciting leap into modernity to an unnecessary assumption of risk. The crash invoked memories of the 1998 Eschede train disaster, where a conventional ICE train derailed due to a broken wheel, killing 101 people. However, while the conventional wheel-on-rail ICE network survived Eschede, the nascent Transrapid could not survive Lathen. The accident highlighted the inherent dangers of an elevated, enclosed system that lacked fail-safes. As one mechanical engineer noted, "Innovation and speed together carry risk. And in this case, a tragic mix of an infant technology and some speed". 
+                    <p>In the aftermath, the German state's risk tolerance evaporated. Proposed Transrapid routes, including a high-profile 25-mile link between Munich's city center and its airport, were systematically cancelled by 2008 due to spiraling cost projections and intense public skepticism regarding safety. By 2011, the Lathen test facility was shuttered, its staff dismissed, and the remaining maglev prototypes were sold off—one famously ending up as a conference room at a regional sausage factory. </p>
+                    <p class="!mb-0">The European sociotechnical imaginary retreated to the familiar, grounded reality of conventional high-speed rail. Wheel-on-rail systems offered vast network compatibility, lower initial infrastructure investments, and a known regulatory safety paradigm. The dream of frictionless travel in Germany was ultimately discarded, viewed post-2006 not as an inevitable evolution of transit, but as an expensive, rigid, and hubristic vanity project. </p>
+                </div>
+            </div>
+
+            <!-- CHINA PANEL -->
+            <div id="panel-china" class="country-panel hidden tech-article">
+                <h2 class="text-4xl font-extrabold text-slate-900 !mt-0 !border-0 mb-8">China: State Capitalism, Sovereign Narratives, and "Chinese Speed"</h2>
+                <p>If Germany represents the institutionalization of maglev skepticism, the People's Republic of China embodies the aggressive, state-led integration of frictionless travel as a pillar of national modernization. In China, the "levitating body" is deeply intertwined with the sociotechnical imaginary of "Chinese Speed" (中国速度)—a concept that equates extreme velocity in infrastructure development with the political legitimacy and economic vitality of the ruling Communist Party. </p>
+
+                <!-- Subcard 4.1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🏙️</span>
+                        Importing Modernity: The Shanghai Transrapid
+                    </h3>
+                    <p>China's foray into magnetic levitation began with the importation of the very German Transrapid technology that Europe would soon abandon. Driven by a desire to showcase its rapid economic ascension on the global stage, the Chinese government partnered with Siemens and ThyssenKrupp to construct the Shanghai Maglev Train. Opening for commercial service on December 31, 2002, the 30.5-kilometer line connecting the Pudong financial district to the international airport operates at a staggering 431 km/h (268 mph), covering the distance in under eight minutes. </p>
+                    <p>Initially, the Shanghai Maglev was a symbol of international cooperation, with the inaugural run featuring Chinese Premier Zhu Rongji alongside German Chancellor Gerhard Schröder. The line was positioned as a physical manifestation of Shanghai's resurgence as an Asian-Pacific information and economic hub, designed to endow the city with a permanent aura of "futurity". </p>
+                    <p class="!mb-0">However, the project was also subject to intense economic critique. With construction costs estimated at over $1 billion (approximately $25 million per kilometer) and continuous operational losses due to a lack of integration with the broader national rail network, critics labeled it an "expensive government vanity project". Furthermore, early riders noted the phenomenological imperfections of the ride, describing the sensation at 431 km/h as "choppy" and plagued by aerodynamic buffeting. </p>
+                </div>
+
+                <!-- Subcard 4.2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🚄</span>
+                        The Techno-Politics of "Chinese Speed"
+                    </h3>
+                    <p>To understand the Chinese maglev imaginary, one must trace the intellectual history of "speed" in the post-socialist era. During the socialist era prior to 1978, the rail system prioritized discipline, planning, and order over velocity; acceleration was viewed as an exception rather than a rule.  This paradigm shifted dramatically following Deng Xiaoping’s historic 1978 visit to Japan. Traveling on the Shinkansen bullet train, Deng famously remarked that the speed felt "as if someone was whipping at the back," declaring it "just right" for China's urgent modernization goals. </p>
+                    <p>Throughout the 1980s and 1990s, the Ministry of Railways (MoR) evolved into a formidable technocratic institution. Technocrats conceived of railway acceleration as a "techno-fix" for the nation's shrinking relevance in the global transportation sector and a cure for entrenched social and economic bottlenecks.  However, rapid expansion led to systemic instability. Institutional reforms such as the "Grand Contract" (1986) and "Net-Train Separation" (2002) attempted to decentralize management but resulted in massive financial losses and frequent safety accidents, exposing the fragility of the rapidly expanding system. </p>
+                    <p class="!mb-0">The narrative of absolute speed faced a severe existential crisis in 2011 following the Wenzhou high-speed rail collision, which killed 40 people. The disaster triggered massive public outcries against the MoR. Public intellectuals like Shi Longhong denounced the technocracy, questioning how life-or-death infrastructure could be pushed at the "speed of the bullet train" without public scrutiny.  Economist Lang Xianping vehemently criticized the "techno-utopia" behind Chinese Speed, arguing that the massive resource reallocation to HSR impoverished ordinary people and hit mass consumption. Lang advocated for a return to intermediate technologies, such as regular-speed "green-skin trains" (绿皮火车), which he argued better suited the interests of consumers. </p>
+                </div>
+
+                <!-- Subcard 4.3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">📊</span>
+                        Narrative Repair and Techno-Economic Rationales
+                    </h3>
+                    <p>To repair the sociotechnical imaginary of "Chinese Speed" and defend the continued pursuit of maglev technology, state technocrats undertook a strategic discursive shift. Rather than relying solely on nationalist fervor or pure technological optimism, the state began framing ultra-high-speed transit through "techno-economic rationales". </p>
+                    <p class="!mb-0">Engineering professors, such as Jin Chaohui, who spearheaded the HS-magnetic program, argued that while the initial capital expenditure for maglev was immense, its frictionless nature resulted in significantly lower physical degradation. Therefore, analyzed over the "whole life cycle" (全寿命周期), the long-term maintenance costs of maglev could theoretically undercut conventional high-speed rail.  This rationale successfully neutralized the economic critiques, allowing the state to justify reserving new transport corridors for future "Hyperloop" and Super High-Speed Maglev networks. </p>
+                </div>
+
+                <!-- Subcard 4.4 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🇨🇳</span>
+                        Sovereign Innovation and the Erasure of the Foreign
+                    </h3>
+                    <p>As China transitioned from an importer of technology to an indigenous innovator, the media narratives surrounding maglev underwent a profound nationalist reorientation. The state recognized that true technological legitimacy required domestic mastery, not reliance on European joint ventures. </p>
+                    <p>This drive for sovereign innovation culminated in the development of the CRRC 600, China's first domestically engineered high-speed maglev train, designed for 600 km/h operation. Pushing the boundaries further, a research team from the National University of Defense Technology (NUDT) recently set a world record by accelerating a ton-level superconducting electric maglev test vehicle to 700 km/h in just two seconds on a 400-meter track.</p>
+                    <p>Chinese state media has heavily publicized these breakthroughs, leveraging its "narrative power" to signal that China has unequivocally entered the "international leading tier" in ultra-high-speed transit. Crucially, contemporary domestic discourse often actively suppresses or minimizes the historical contribution of German Transrapid technology to China's maglev foundation. The narrative is strictly curated to highlight indigenous Chinese achievement, presenting frictionless travel as a triumph of the state's capacity to organize capital, labor, and intellect.</p>
+                    <p class="!mb-0">In the Chinese sociotechnical imaginary, the levitating body is fundamentally a politicized body. Frictionless travel is not merely about passenger convenience; it is a demonstration of the state's ability to compress time and space, bind vast economic mega-regions together, and project an image of unstoppable, frictionless national progress to both domestic audiences and global competitors.</p>
+                </div>
+            </div>
+
+            <!-- JAPAN PANEL -->
+            <div id="panel-japan" class="country-panel hidden tech-article">
+                <h2 class="text-4xl font-extrabold text-slate-900 !mt-0 !border-0 mb-8">Japan: SCMaglev, Industrial Heritage, and Ecological Friction</h2>
+                <p>While China has rapidly deployed maglev as a symbol of newfound geopolitical dominance, Japan views the technology as the organic continuation of a deeply established industrial heritage. The Japanese sociotechnical imaginary surrounding the Chuo Shinkansen project frames superconducting magnetic levitation (SCMaglev) as both the ultimate sensory upgrade to modern transit and a vital defense mechanism against the country's severe demographic and geographic vulnerabilities. </p>
+
+                <!-- Subcard 5.1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">✨</span>
+                        The Sensory Upgrade and Techno-Nationalism
+                    </h3>
+                    <p>Initiated by the Central Japan Railway Company (JR Central), the Chuo Shinkansen is an unprecedented infrastructure megaproject aimed at connecting Tokyo and Nagoya, and eventually extending to Osaka. Operating at 505 km/h (314 mph), the line will slash the Tokyo-Nagoya travel time to just 40 minutes, creating a unified mega-economic region. </p>
+                    <p>The marketing of the SCMaglev is heavily imbued with techno-nationalism. JR Central executives explicitly state that such a monumental system "could not be realized without Japan’s advanced industrial capabilities," framing it as "one of Japan’s proudest achievements".  The technology relies on a half-century of continuous, meticulous domestic research that began in 1962, well before the global mainstreaming of the concept. </p>
+                    <p>Unlike the Chinese and German EMS systems, which hover a precarious 1 centimeter above the track, Japanese media emphasizes the superior 10-centimeter (4-inch) levitation gap achieved by its Electrodynamic Suspension (EDS) technology.  To achieve this, Japan cools niobium-titanium coils with liquid helium to minus 269 degrees Celsius, reaching a state of superconductivity.  This 10-centimeter gap is marketed not just as a technical specification, but as a "fundamentally different" approach that guarantees a smoother, safer, and more comfortable sensory experience, mitigating the vibratory risks seen in EMS.  The physical transition from rolling on rubber tires to frictionless, airborne levitation at 160 km/h is positioned as a sophisticated, high-tech evolution of the ride quality that defined the original 1964 Tokaido Shinkansen. </p>
+                    <p class="!mb-0">Furthermore, Japan envisions the SCMaglev as an exportable diplomatic asset. By aggressively marketing the technology to the United States for the Northeast Corridor, Japan utilizes maglev as a symbol of "U.S.-Japan friendship" and a testament to its enduring relevance as an exporter of premier infrastructure.  However, this export ambition has been hindered by the "Galápagos Syndrome"—Japan's tendency to design closed-system, highly specialized technologies that are too expensive or incompatible for international buyers.</p>
+                </div>
+
+                <!-- Subcard 5.2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">🛡️</span>
+                        Abenomics, Energy, and the Justification of Redundancy
+                    </h3>
+                    <p>The Japanese imaginary also frames frictionless travel as an existential necessity for state continuity. The existing Tokaido Shinkansen is aging and highly vulnerable to Japan's frequent seismic activity. JR Central justifies the astronomical cost of the Chuo Shinkansen—estimated to have ballooned to ¥11 trillion ($70+ billion)—as a necessary dual-system redundancy. In the event of a catastrophic Nankai Trough earthquake, the maglev line, which runs primarily through deep tunnels carved into the Southern Alps, is intended to serve as the secure, frictionless backbone ensuring the survival of the Japanese economy.</p>
+                    <p>This justification was deeply embedded in the political framework of "Abenomics." Former Prime Minister Shinzo Abe upgraded the Chuo Shinkansen from a private enterprise to a "state project," injecting ¥3 trillion ($27 billion) in public funds to accelerate construction. However, scholars like Aoki Hidekazu and Kawamiya Nobuo have sharply criticized this move, arguing it represents a return to Japan's bloated, deficit-breeding "construction state" model.</p>
+                    <p class="!mb-0">Economic and energy analyses reveal a stark contradiction in the project's sustainability claims. While JR Central markets the maglev as emitting less CO2 than airplanes, it is an "abnormally energy-wasting project" compared to existing rail. The energy efficiency of a conventional Nozomi train cruising at 285 km/h is estimated at 70 Watt-hours/seat/km. Conversely, the Chuo Shinkansen operating at 500 km/h requires an estimated 99 Wh/seat/km. Critics argue that in a post-Fukushima Japan facing severe energy constraints, the massive power consumption required to achieve frictionless travel is a foolhardy misallocation of resources.</p>
+                </div>
+
+                <!-- Subcard 5.3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-10 relative overflow-hidden hover:shadow-md transition-shadow group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-teal-500/30 group-hover:bg-teal-500 transition-colors"></div>
+                    <h3 class="flex items-center gap-4 text-2xl font-bold text-slate-900 !mt-0 mb-6 border-b border-slate-200 pb-4">
+                        <span class="text-2xl bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex items-center justify-center">⛰️</span>
+                        Ecological Friction and Cultural Behavioral Patterns
+                    </h3>
+                    <p>Despite its positioning as a national savior, the Chuo Shinkansen has generated immense social and ecological friction. The pursuit of a perfectly straight, perfectly smooth frictionless trajectory requires brutalizing the natural environment; approximately 90% of the route to Nagoya consists of deep mountain tunnels. </p>
+                    <p>This geographical imposition sparked fierce local opposition, most notably in Shizuoka Prefecture. Governor Heita Kawakatsu repeatedly blocked construction, arguing that the massive tunnel excavation threatened the underground water resources of the Oi River, which local agriculture heavily relies upon. JR Central President Shunsuke Niwa was forced to publicly apologize for dropping well water levels in Mizunami City, Gifu Prefecture, illustrating how the sociotechnical imaginary of national speed collides directly with localized ecological survival.</p>
+                    <p>Furthermore, the management of the project reveals distinct cultural behavioral patterns regarding risk and transparency. Reports indicate that when engineers at the Yamanashi test line discovered technical limitations—such as the excessive time required to switch points in a turnout—they hesitated to report the "unhappy results" to JR Central's CEO, adhering to cultural norms of avoiding conflict. Similarly, the company altered public-facing documents to disguise fundamental contradictions regarding passenger capacity, demonstrating how the state and corporate apparatus carefully curates the imaginary of the "levitating body" to obscure operational vulnerabilities from the public.</p>
+                    <p class="!mb-0">Adding to this domestic friction is a pervasive geopolitical anxiety. With the Chuo Shinkansen delayed by environmental protests, Japanese media has expressed fears that China, having allegedly recruited Japanese engineers, will commercialize 600 km/h maglev technology first, usurping Japan's intellectual property and destroying its international competitiveness. Thus, the Japanese maglev imaginary is a complex tapestry of intense industrial pride, ecological conflict, and deep-seated geopolitical insecurity.</p>
+                </div>
+            </div>
         </section>
+
+      
 
         <!-- NEW Section 3: Innovation Spotlight - Prof Deng -->
         <section id="innovation" class="scroll-mt-12">
