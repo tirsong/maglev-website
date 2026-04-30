@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socio-Technical Imaginaries of Maglev Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        
+        .nav-link.active {
+            background-color: #0f172a;
+            color: #f8fafc;
+            border-left: 4px solid #0d9488;
+        }
+        
+        .country-tab.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #e2e8f0;
+            z-index: -1;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col md:flex-row min-h-screen">
+
+    <!-- Sidebar Navigation -->
+    <nav class="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-slate-200 flex-shrink-0 md:h-screen md:sticky md:top-0 z-20 overflow-y-auto">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold text-slate-900 leading-tight mb-2">The Levitating Body</h1>
+            <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Interactive Research Report</p>
+        </div>
+        <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible pb-4 md:px-0 gap-2 md:gap-0">
+            <a href="#summary" class="nav-link active flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Executive Summary</a>
+            <a href="#trajectories" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">National Trajectories</a>
+            <a href="#innovation" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Innovation Spotlight</a>
+            <a href="#timelines" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Global Timelines</a>
+            <a href="#multimedia" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Multimedia Library</a>
+            <a href="#comparative" class="nav-link flex-shrink-0 md:w-full px-6 py-3 text-sm font-medium text-slate-600 hover:bg-slate-100 transition-colors">Comparative Analysis</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-6xl mx-auto p-6 md:p-12 space-y-24">
+
+        <!-- Section 1: Executive Summary -->
+        <section id="summary" class="scroll-mt-12">
+            <header class="mb-8 border-b border-slate-200 pb-6">
+                <div class="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full mb-4 tracking-wide uppercase">Research Overview</div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Socio-Technical Imaginaries of Maglev</h2>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-4xl">
+                    This interactive report examines how magnetic levitation (maglev) technology is culturally translated across China, Japan, and Germany. It investigates how national media and public sentiment construct the concept of "frictionless travel"—framing it either as a site of ultimate modernity or a landscape of risk.
+                </p>
+            </header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-4">🚄</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">East Asia: The Sensory Upgrade</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        In China and Japan, the physical experience of levitation is actively marketed as a "sensory upgrade" to the human transit experience. The technology symbolizes national mastery, frictionless speed, and state-led or high-tech progress.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Europe: Regulatory Caution</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        In Germany, following the 2006 Transrapid accident, public sentiment shifted from pioneering optimism to skepticism. The "levitating body" is viewed through a lens of regulatory caution and technological hubris.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: National Trajectories -->
+        <section id="trajectories" class="scroll-mt-12">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">National Trajectories</h2>
+                <p class="text-lg text-slate-600 max-w-3xl">
+                    Select a country below to explore how historical events and state goals have shaped their unique socio-technical imaginary.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col xl:flex-row">
+                <div class="w-full xl:w-1/2 p-8 border-b xl:border-b-0 xl:border-r border-slate-200 flex flex-col">
+                    <div class="flex space-x-2 bg-slate-100 p-2 rounded-xl mb-8">
+                        <button onclick="setCountry('china')" id="btn-china" class="country-tab active flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">China</button>
+                        <button onclick="setCountry('japan')" id="btn-japan" class="country-tab text-slate-600 hover:bg-slate-200 flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">Japan</button>
+                        <button onclick="setCountry('germany')" id="btn-germany" class="country-tab text-slate-600 hover:bg-slate-200 flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all text-center">Germany</button>
+                    </div>
+
+                    <div id="country-content" class="flex-1 flex flex-col justify-center transition-opacity duration-300">
+                        <h4 id="display-subtitle" class="text-teal-600 font-bold uppercase tracking-wider text-sm mb-2">State-Led Integration</h4>
+                        <h3 id="display-title" class="text-3xl font-extrabold text-slate-900 mb-4">Shanghai Maglev</h3>
+                        <p id="display-desc" class="text-slate-600 leading-relaxed mb-6">
+                            The Shanghai Maglev represents China's state-led integration and utilization of cutting-edge infrastructure as a symbol of national mastery.
+                        </p>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mt-auto">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Key Context</span>
+                            <p id="display-context" class="text-slate-800 text-sm font-medium">Commercial launch in 2004 established it as a global icon of high-speed modernity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 p-8 flex flex-col items-center justify-center bg-slate-50">
+                    <div class="chart-container">
+                        <canvas id="polarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 3: Innovation Spotlight - Prof Deng -->
+        <section id="innovation" class="scroll-mt-12">
+            <div class="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+                <div class="p-8 lg:p-12 lg:w-3/5">
+                    <div class="inline-block px-3 py-1 bg-teal-500 text-white text-xs font-bold rounded-full mb-6 tracking-wide uppercase">Innovation Spotlight</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Prof. Deng Zigang & HTS Maglev</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                        At the Southwest Jiaotong University (SWJTU) in Chengdu, Professor Deng Zigang is pioneering the next frontier of transit: <strong>High-Temperature Superconducting (HTS) Maglev</strong>. Unlike traditional maglevs, HTS technology allows for "quantum pinning," where the vehicle remains locked in a stable levitation state even when stationary.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0 text-teal-400 font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-white">Super Maglev Prototype</h4>
+                                <p class="text-sm text-slate-400">The 2021 debut of the world's first high-temperature superconducting high-speed maglev engineering prototype, designed for speeds up to 620 km/h.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0 text-teal-400 font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-white">Vacuum Tube Integration</h4>
+                                <p class="text-sm text-slate-400">Deng's lab is researching the combination of HTS Maglev with low-vacuum tubes (the "Flying Train" concept) to potentially reach speeds exceeding 1,000 km/h.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-2/5 bg-slate-800 p-8 flex flex-col justify-center items-center border-l border-slate-700">
+                    <div class="text-6xl mb-6">🧪</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">SWJTU Super Maglev Lab</h3>
+                    <p class="text-slate-400 text-sm text-center mb-6">Established as the world's leading research center for HTS levitation stability and industrial application.</p>
+                    <div class="w-full bg-slate-700/50 p-4 rounded-xl text-xs font-mono text-teal-400">
+                        // Current Focus:<br>
+                        - Dynamic Levitation Stability<br>
+                        - Cryogenic Cooling Optimization<br>
+                        - Multi-objective Optimization
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 4: Global Timelines -->
+        <section id="timelines" class="scroll-mt-12">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Global Development Timelines</h2>
+                <p class="text-slate-600">Tracking the pivotal moments in maglev history across leading nations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- China Timeline -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4">China</h3>
+                    <div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-200">
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-teal-600 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-teal-600 block mb-1">2004</span>
+                            <h4 class="text-sm font-bold text-slate-900">Shanghai Maglev Launch</h4>
+                            <p class="text-xs text-slate-500 mb-2">First commercial high-speed maglev line opens.</p>
+                            <a href="https://www.chinadaily.com.cn/english/doc/2004-12/28/content_403986.htm" target="_blank" class="text-[10px] text-blue-600 underline">Read Archive Report</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-slate-400 block mb-1">2021</span>
+                            <h4 class="text-sm font-bold text-slate-900">600km/h Prototype</h4>
+                            <p class="text-xs text-slate-500 mb-2">Qingdao rolls out its high-speed maglev transportation system.</p>
+                            <a href="https://www.reuters.com/business/aerospace-defense/china-unveils-600-kmh-maglev-train-state-media-2021-07-20/" target="_blank" class="text-[10px] text-blue-600 underline">Reuters Coverage</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-slate-400 block mb-1">2023</span>
+                            <h4 class="text-sm font-bold text-slate-900">HTS Speed Milestone</h4>
+                            <p class="text-xs text-slate-500 mb-2">SWJTU prototype completes full-speed test runs in vacuum environments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Japan Timeline -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 border-l-4 border-teal-600 pl-4">Japan</h3>
+                    <div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-200">
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-teal-600 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-teal-600 block mb-1">1997</span>
+                            <h4 class="text-sm font-bold text-slate-900">Yamanashi Test Record</h4>
+                            <p class="text-xs text-slate-500 mb-2">MLX01 reaches 550 km/h, setting world records.</p>
+                            <a href="https://company.jr-central.co.jp/en/company/history/" target="_blank" class="text-[10px] text-blue-600 underline">JR Central History</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-slate-400 block mb-1">2015</span>
+                            <h4 class="text-sm font-bold text-slate-900">603 km/h World Record</h4>
+                            <p class="text-xs text-slate-500 mb-2">SCMaglev breaks its own record in Yamanashi.</p>
+                            <a href="https://www.theguardian.com/world/2015/apr/21/japan-maglev-train-breaks-world-speed-record-again" target="_blank" class="text-[10px] text-blue-600 underline">Guardian Feature</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-slate-400 block mb-1">2027+</span>
+                            <h4 class="text-sm font-bold text-slate-900">Chuo Shinkansen Expected</h4>
+                            <p class="text-xs text-slate-500 mb-2">Projected launch of the Tokyo-Nagoya commercial line.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Germany Timeline -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 border-l-4 border-rose-600 pl-4">Germany</h3>
+                    <div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-200">
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-rose-600 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-rose-600 block mb-1">1984</span>
+                            <h4 class="text-sm font-bold text-slate-900">Transrapid Emsland</h4>
+                            <p class="text-xs text-slate-500 mb-2">Test facility becomes operational for TR06 prototype.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-rose-600 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-rose-600 block mb-1">2006</span>
+                            <h4 class="text-sm font-bold text-slate-900">Lathen Accident</h4>
+                            <p class="text-xs text-slate-500 mb-2">Fatal collision leads to collapse of domestic support.</p>
+                            <a href="https://www.dw.com/en/germany-pauses-to-remember-victims-of-lathen-maglev-crash/a-2183204" target="_blank" class="text-[10px] text-blue-600 underline">DW Memorial Report</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-xs font-bold text-slate-400 block mb-1">2011</span>
+                            <h4 class="text-sm font-bold text-slate-900">Closure of Emsland</h4>
+                            <p class="text-xs text-slate-500 mb-2">Facility license expires; focus shifts to maintenance and parts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 5: Multimedia Library -->
+        <section id="multimedia" class="scroll-mt-12">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Multimedia Library</h2>
+                <p class="text-slate-600">Visualizing the technology in motion.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/P66XG-mNl2Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Prof. Deng's HTS Prototype</h4>
+                    <p class="text-sm text-slate-500 mt-1">Official test run of the 620 km/h HTS Maglev in Chengdu.</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/a7NIdzSsc9I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-slate-900">SCMaglev Speed Record</h4>
+                    <p class="text-sm text-slate-500 mt-1">On-board footage of Japan's L0 series hitting 603 km/h.</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/SPr_p6889wA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Shanghai Maglev Experience</h4>
+                    <p class="text-sm text-slate-500 mt-1">A cinematic look at the world's fastest commercial train in operation.</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/XqE677F6w-w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Transrapid Historical Run</h4>
+                    <p class="text-sm text-slate-500 mt-1">Archival footage of the German Transrapid system at Emsland.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Comparative Analysis -->
+        <section id="comparative" class="scroll-mt-12 pb-12">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">The Sensory Upgrade vs. Hubris</h2>
+                <p class="text-lg text-slate-600 max-w-3xl">
+                    By quantifying qualitative sentiment analysis, we map how the physical experience of the "levitating body" is marketed versus how it is scrutinized.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="chart-container" style="max-width: 1000px; height: 400px;">
+                    <canvas id="divergingBarChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100">
+                    <div>
+                        <h5 class="font-bold text-slate-900 mb-2">East Asian Consensus</h5>
+                        <p class="text-sm text-slate-600">China and Japan focus media attention on speed, frictionless comfort, and technological triumph.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-slate-900 mb-2">German Divergence</h5>
+                        <p class="text-sm text-slate-600">The lack of friction is culturally translated into a narrative of lost physical control and regulatory vulnerability.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-slate-900 mb-2">Conclusion</h5>
+                        <p class="text-sm text-slate-600">Maglev speed is a curated socio-technical imaginary determined by the political landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const reportData = {
+            china: {
+                subtitle: "State-Led Integration",
+                title: "Shanghai Maglev",
+                desc: "The Shanghai Maglev represents China's state-led integration and utilization of cutting-edge infrastructure as a symbol of national mastery.",
+                context: "Commercial launch in 2004 established it as a global icon of high-speed modernity.",
+                polarData: [90, 85, 15, 10]
+            },
+            japan: {
+                subtitle: "High-Tech Positioning",
+                title: "Chuo Shinkansen",
+                desc: "Japan positions the Chuo Shinkansen strictly within a high-tech framing, marketed as the ultimate sensory upgrade.",
+                context: "Ongoing development focuses on pushing physical limits while marketing comfort.",
+                polarData: [85, 95, 20, 15]
+            },
+            germany: {
+                subtitle: "Pioneer to Skeptic",
+                title: "The Transrapid Legacy",
+                desc: "Once a maglev pioneer, Germany became deeply skeptical following regulatory and safety concerns.",
+                context: "The 2006 Transrapid accident served as the catalyst for shifting public sentiment.",
+                polarData: [30, 15, 90, 85]
+            }
+        };
+
+        let currentCountry = 'china';
+        let polarChartInstance = null;
+        const colors = {
+            modernity: 'rgba(13, 148, 136, 0.7)',
+            upgrade: 'rgba(45, 212, 191, 0.7)',
+            risk: 'rgba(225, 29, 72, 0.7)',
+            hubris: 'rgba(251, 113, 133, 0.7)'
+        };
+
+        function initPolarChart() {
+            const ctx = document.getElementById('polarChart').getContext('2d');
+            Chart.defaults.color = '#64748b';
+            polarChartInstance = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Site of Modernity', 'Sensory Upgrade', 'Risk & Caution', 'Technological Hubris'],
+                    datasets: [{
+                        data: reportData[currentCountry].polarData,
+                        backgroundColor: [colors.modernity, colors.upgrade, colors.risk, colors.hubris],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 100, ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' } } },
+                    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, font: { size: 10 } } } }
+                }
+            });
+        }
+
+        window.setCountry = function(countryKey) {
+            currentCountry = countryKey;
+            document.querySelectorAll('.country-tab').forEach(btn => {
+                btn.classList.remove('active', 'bg-slate-900', 'text-white');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-200');
+            });
+            const activeBtn = document.getElementById(`btn-${countryKey}`);
+            activeBtn.classList.add('active');
+
+            const contentDiv = document.getElementById('country-content');
+            contentDiv.style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('display-subtitle').innerText = reportData[countryKey].subtitle;
+                document.getElementById('display-title').innerText = reportData[countryKey].title;
+                document.getElementById('display-desc').innerText = reportData[countryKey].desc;
+                document.getElementById('display-context').innerText = reportData[countryKey].context;
+                contentDiv.style.opacity = '1';
+            }, 200);
+
+            if(polarChartInstance) {
+                polarChartInstance.data.datasets[0].data = reportData[countryKey].polarData;
+                polarChartInstance.update();
+            }
+        };
+
+        function initDivergingChart() {
+            const ctx = document.getElementById('divergingBarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['China (Shanghai)', 'Japan (Chuo)', 'Germany (Transrapid)'],
+                    datasets: [
+                        { label: 'Focus on Modernity', data: [85, 90, 20], backgroundColor: colors.modernity, borderRadius: 4 },
+                        { label: 'Focus on Caution', data: [-15, -10, -85], backgroundColor: colors.risk, borderRadius: 4 }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => Math.abs(v) } },
+                        y: { stacked: true, grid: { display: false }, ticks: { font: { weight: 'bold' } } }
+                    },
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) current = section.getAttribute("id");
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) link.classList.add("active");
+            });
+        });
+
+        window.onload = () => {
+            initPolarChart();
+            initDivergingChart();
+        };
+    </script>
+</body>
+</html>
